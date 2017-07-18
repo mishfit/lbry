@@ -82,7 +82,7 @@ def main():
                         suggest_help=False)
         return 1
 
-    if status['startup_status']['code'] != "started":
+    if status['startup_status']['code'] != "started" and method != "wallet_unlock":
         print "Daemon is in the process of starting. Please try again in a bit."
         message = status['startup_status']['message']
         if message:
