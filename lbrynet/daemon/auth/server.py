@@ -193,13 +193,14 @@ class AuthJSONRPCServer(AuthorizedBase):
 
     isLeaf = True
 
+    allowed_during_startup = []
+
     def __init__(self, use_authentication=None):
         self._call_lock = {}
         self._use_authentication = (
             use_authentication if use_authentication is not None else conf.settings['use_auth_http']
         )
         self.announced_startup = False
-        self.allowed_during_startup = []
         self.sessions = {}
 
     def setup(self):
